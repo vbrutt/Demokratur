@@ -63,10 +63,9 @@ void compare(int party1, int party2, int indexCitizen, int neighbour){
         }
         output();
 
-        //VOID WINAPI Sleep( DWORD dwMilliseconds );
-        //Sleep(100);
+        VOID WINAPI Sleep( DWORD dwMilliseconds );
+        Sleep(100);
     }
-
 }
 
 int getNeighbour(int party2, int indexCitizen, int neighbour){
@@ -119,13 +118,11 @@ int main()
     for (int i = 0; i < arraySize; i++) {
         setParty(1 + rand() % 2,i);
     }
-    do{
+    while(isNotFinished()){
         int indexCitizen = rand() % citizenNumber;
         int party1 = partyArray[indexCitizen].party;
         int neighbour = 1 + rand() % 4;
         int party2 = getNeighbour(party2, indexCitizen, neighbour);
         compare(party1, party2, indexCitizen, neighbour);
-
-    }while(isNotFinished());
-    return 0;
+    }
 }
